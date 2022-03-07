@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render, fireEvent, waitForElement } from 'react-testing-library'
 
-import { App } from '../App'
+import { App } from '../index'
 
 /**
  * Just a simple integration tests
@@ -9,7 +9,6 @@ import { App } from '../App'
 
 test('App Component renders with toggle switch', () => {
   const wrap = render(<App />)
-
   expect(wrap.getByTestId('toggle-input')).toBeInTheDocument()
 })
 
@@ -25,4 +24,5 @@ test('App Component can change toggle status with clicking toggle switch', async
   fireEvent.click(toggleButton)
   expect(container).toHaveTextContent(/the button is off/i)
   expect(toggleButton).toSatisfy(button => !button.checked)
+
 })
